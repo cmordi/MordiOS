@@ -10,7 +10,7 @@ For my own sanity the kernel is mostly written in C and assembly, and not some o
 I will try to work on MordiOS as frequently as I can but you can count on the following features being integrated if they haven't already: 
 
 ## Features(current and upcoming)
-- BIOS bootloader with 16-bit real mode and 32-bit protected mode debugging display routines in assembler.
+- A BIOS bootloader using assembly language that is capable of switching between 16-bit real mode and 32-bit protected mode
 - C or CPP kernel
 - CPU model detection
 - A decently sized libc (this is subjective I guess)
