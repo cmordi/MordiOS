@@ -14,26 +14,32 @@ uint32_t ports_inl(uint16_t port);
 void ports_outl(uint16_t port, uint32_t data);
 void io_wait(void);
 
-// memory access
+// this is for memory access
 uint32_t farpeekl(uint16_t sel, void* off);
 void farpokeb(uint16_t sel, void* off, uint8_t v);
 
-// cpu related
+// for cpu
 void cpu_relax(void);
 void cpuid(int code, uint32_t *a, uint32_t *d);
 int cpu_string(int code, uint32_t where[4]);
+
+/* the following reads the value of the 32-bit Control Registers 0-8  on a computer's CPU.
+    then returns a 32-bit unsigned integer (uint32_t)
+*/
+
+// FYI: read_cr1, read_cr5, read_cr6, read_cr7 are reserved and will raise an invalid OP exception
 uint64_t rdtsc(void);
 uint32_t read_cr0(void);
-uint32_t read_cr1(void);	// reserved, will raise invalid OP exception
+uint32_t read_cr1(void);	
 uint32_t read_cr2(void);
 uint32_t read_cr3(void);
 uint32_t read_cr4(void);
-uint32_t read_cr5(void);	// reserved, will raise invalid OP exception
-uint32_t read_cr6(void);	// reserved, will raise invalid OP exception
-uint32_t read_cr7(void);	// reserved, will raise invalid OP exception
+uint32_t read_cr5(void);
+uint32_t read_cr6(void);	
+uint32_t read_cr7(void);	
 uint32_t read_cr8(void);
 void wrmsr(uint32_t msr, uint32_t lo, uint32_t hi);
 void rdmsr(uint32_t msr, uint32_t *lo, uint32_t *hi);
 void invlpg(void* m);
 
-#endif
+#endif // hardware_h_included
